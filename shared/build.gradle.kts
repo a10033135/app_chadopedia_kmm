@@ -19,6 +19,12 @@ kotlin {
     }
 
     sourceSets {
+        val voyagerVersion = "1.0.0-rc10"
+        val koinVersion = "3.4.3"
+        val kamelVersion = "0.7.3"
+        val ktorVersion = "2.3.4"
+        val coroutineVersion = "1.7.3"
+
         val commonMain by getting {
             dependencies {
                 implementation(compose.runtime)
@@ -26,13 +32,30 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+
+                // koin
+                implementation("io.insert-koin:koin-core:$koinVersion")
+
+                // Voyager
+                implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+                implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+                implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+
+                // Kamel
+                implementation("media.kamel:kamel-image:$kamelVersion")
+
+                // Ktor
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+
+                // Coroutine
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
             }
         }
         val androidMain by getting {
             dependencies {
-                api("androidx.activity:activity-compose:1.7.2")
+                api("androidx.activity:activity-compose:1.8.1")
                 api("androidx.appcompat:appcompat:1.6.1")
-                api("androidx.core:core-ktx:1.10.1")
+                api("androidx.core:core-ktx:1.12.0")
             }
         }
         val iosX64Main by getting
