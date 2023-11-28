@@ -1,5 +1,7 @@
 import androidx.compose.runtime.Composable
-
-actual fun getPlatformName(): String = "Android"
+import screen.App
 
 @Composable fun MainView() = App()
+
+fun firebase(){
+}

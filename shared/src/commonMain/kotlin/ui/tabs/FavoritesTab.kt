@@ -1,4 +1,4 @@
-package tabs
+package ui.tabs
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -7,9 +7,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
-import secondScreen.SecondScreen
+import screen.second.SecondScreen
 
-object ProfileTab : Tab {
+object FavoritesTab : Tab {
 
     @Composable
     override fun Content() {
@@ -23,7 +23,7 @@ object ProfileTab : Tab {
             return remember {
                 TabOptions(
                     index = 0u,
-                    title = "Profile",
+                    title = "Favorites",
                     icon = icon
                 )
             }
