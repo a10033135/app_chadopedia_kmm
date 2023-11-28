@@ -33,6 +33,10 @@ kotlin {
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
 
+                api("org.lighthousegames:logging:1.3.0")
+
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
+
                 // koin
                 implementation("io.insert-koin:koin-core:$koinVersion")
 
@@ -56,6 +60,9 @@ kotlin {
                 api("androidx.activity:activity-compose:1.8.1")
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.12.0")
+                api("com.google.firebase:firebase-common-ktx:20.4.2")
+                api("com.google.firebase:firebase-firestore:24.9.1")
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
             }
         }
         val iosX64Main by getting

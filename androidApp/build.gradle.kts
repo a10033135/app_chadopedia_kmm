@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.application")
     id("org.jetbrains.compose")
+    id("com.google.gms.google-services") // This line to add the google-services
 }
 
 kotlin {
@@ -10,6 +11,9 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(project(":shared"))
+                implementation(platform("com.google.firebase:firebase-bom:32.6.0")) // This line to add the firebase bom
+                implementation("com.google.firebase:firebase-common-ktx:20.4.2")
+                implementation("com.google.firebase:firebase-firestore:24.9.1")
             }
         }
     }
@@ -22,7 +26,7 @@ android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 
     defaultConfig {
-        applicationId = "com.myapplication.MyApplication"
+        applicationId = "idv.tungfanhall.android_chadopedia_app"
         minSdk = (findProperty("android.minSdk") as String).toInt()
         targetSdk = (findProperty("android.targetSdk") as String).toInt()
         versionCode = 1

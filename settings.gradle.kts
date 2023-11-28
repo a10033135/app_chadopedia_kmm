@@ -1,4 +1,4 @@
-rootProject.name = "MyApplication"
+rootProject.name = "android_chadopedia_app"
 
 include(":androidApp")
 include(":shared")
