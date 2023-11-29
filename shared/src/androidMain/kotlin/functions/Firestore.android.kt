@@ -24,7 +24,7 @@ actual suspend fun getChadoContent(): List<ChadoContent> {
 fun List<DocumentSnapshot>.toMainCategory(): List<MainCategory> {
     return this.map {
         MainCategory(
-            doc_id = it.id,
+            id = it.id,
             title = it["title"] as? String ?: "",
             desc = it["desc"] as? String ?: "",
             has_image = it["has_image"] as? Boolean ?: false,
@@ -39,7 +39,7 @@ fun List<DocumentSnapshot>.toMainCategory(): List<MainCategory> {
 fun List<DocumentSnapshot>.toSubCategory(): List<SubCategory> {
     return this.map {
         SubCategory(
-            doc_id = it.id,
+            id = it.id,
             main_cate_id = it["main_cate_id"] as? String ?: "",
             title = it["title"] as? String ?: "",
             desc = it["desc"] as? String ?: "",
@@ -55,7 +55,7 @@ fun List<DocumentSnapshot>.toSubCategory(): List<SubCategory> {
 fun List<DocumentSnapshot>.toChadoContent(): List<ChadoContent> {
     return this.map {
         ChadoContent(
-            doc_id = it.id,
+            id = it.id,
             title = it["title"] as? String ?: "",
             desc = it["desc"] as? String ?: "",
             has_image = it["has_image"] as? Boolean ?: false,

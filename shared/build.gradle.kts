@@ -2,6 +2,8 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("org.jetbrains.compose")
+    kotlin("plugin.serialization") version("1.9.21")
+    id("com.squareup.sqldelight") version("1.5.5")
 }
 
 kotlin {
@@ -20,10 +22,12 @@ kotlin {
 
     sourceSets {
         val voyagerVersion = "1.0.0-rc10"
-        val koinVersion = "3.4.3"
+        val koinVersion = "3.5.2-RC1"
         val kamelVersion = "0.7.3"
         val ktorVersion = "2.3.4"
         val coroutineVersion = "1.7.3"
+        val dataStoreVersion = "1.0.0"
+        val sqlDelightVersion = "1.5.5"
 
         val commonMain by getting {
             dependencies {
@@ -53,6 +57,8 @@ kotlin {
 
                 // Coroutine
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
+
+                implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
             }
         }
         val androidMain by getting {
@@ -63,6 +69,8 @@ kotlin {
                 api("com.google.firebase:firebase-common-ktx:20.4.2")
                 api("com.google.firebase:firebase-firestore:24.9.1")
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
+                api("androidx.datastore:datastore-preferences:$dataStoreVersion")
+                implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
             }
         }
         val iosX64Main by getting
@@ -73,6 +81,10 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+
+            dependencies {
+                implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
+            }
         }
     }
 }
@@ -94,5 +106,11 @@ android {
     }
     kotlin {
         jvmToolchain(17)
+    }
+}
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "idv.tungfanhall.chadopedia.kmm.shared.cache"
     }
 }

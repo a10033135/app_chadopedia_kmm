@@ -1,0 +1,17 @@
+import java.lang.Boolean;
+import java.lang.Long;
+import java.lang.String;
+
+CREATE TABLE MainCategory (
+    id INTEGER AS Int NOT NULL PRIMARY KEY AUTOINCREMENT,
+    title TEXT AS String NOT NULL DEFAULT '',  -- 用户名
+    desc TEXT AS String NOT NULL DEFAULT '',  -- 用户名
+    has_image INTEGER AS Boolean NOT NULL DEFAULT 0,
+    enable INTEGER AS Boolean NOT NULL DEFAULT 0,
+    sort INTEGER AS Int NOT NULL DEFAULT 0,
+    create_time INTEGER AS Long NOT NULL DEFAULT 0,
+    update_time INTEGER AS Long NOT NULL DEFAULT 0
+);
+
+insertMainCategory:
+INSERT INTO MainCategory (title, desc, has_image, enable, sort, create_time, update_time) VALUES (?, ?, ?, ?, ?, ?, ?);

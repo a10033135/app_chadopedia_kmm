@@ -1,5 +1,8 @@
 package repository
 
+import functions.getChadoContent
+import functions.getMainCate
+import functions.getSubCate
 import model.ChadoContent
 import model.MainCategory
 import model.SubCategory
@@ -10,9 +13,9 @@ class ChadoContentRepository {
         if (!checkOfflineData()) {
             getOnlineData()
         }
-//        val mainCategory = getMainCategory()
-//        val subCategory = getSubCategory()
-//        val chadoContent = getChadoContent()
+        val mainCategory = getMainCate()
+        val subCategory = getSubCate()
+        val chadoContent = getChadoContent()
 
         return listOf()
     }

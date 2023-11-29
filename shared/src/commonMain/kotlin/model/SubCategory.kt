@@ -3,7 +3,7 @@ package model
 import kotlinx.datetime.Clock
 
 data class SubCategory(
-    val doc_id: String = "",
+    val id: String = "",
     val main_cate_id: String = "",
     val title: String = "",
     val desc: String = "",

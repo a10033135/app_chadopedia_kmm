@@ -1,0 +1,16 @@
+import java.lang.Boolean;
+import java.lang.Integer;
+import java.lang.Long;
+import java.lang.String;
+
+CREATE TABLE SubCategory(
+    id INTEGER AS Int NOT NULL PRIMARY KEY AUTOINCREMENT,
+    title TEXT AS String NOT NULL DEFAULT '',  -- 用户名
+    desc TEXT AS String NOT NULL DEFAULT '',  -- 用户名
+    has_image INTEGER AS Boolean NOT NULL DEFAULT 0,
+    enable INTEGER AS Boolean NOT NULL DEFAULT 0,
+    sort INTEGER AS Int NOT NULL DEFAULT 0,
+    create_time INTEGER AS Long NOT NULL DEFAULT 0,
+    update_time INTEGER AS Long NOT NULL DEFAULT 0,
+    main_cate_id TEXT AS String NOT NULL DEFAULT ''
+    );
