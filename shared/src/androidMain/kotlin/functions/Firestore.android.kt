@@ -60,8 +60,8 @@ fun List<DocumentSnapshot>.toChadoContent(): List<ChadoContent> {
             desc = it["desc"] as? String ?: "",
             has_image = it["has_image"] as? Boolean ?: false,
             enable = it["enable"] as? Boolean ?: false,
-            main_categories = it["main_categories"] as? List<String> ?: listOf(),
-            sub_categories = it["sub_categories"] as? List<String> ?: listOf(),
+            main_categories = (it["main_categories"] as? List<String>) ?: listOf(),
+            sub_categories = (it["sub_categories"] as? List<String>) ?: listOf(),
             create_time = (it["create_time"] as? Timestamp)?.seconds ?: 0,
             update_time = (it["update_time"] as? Timestamp)?.seconds ?: 0,
         )

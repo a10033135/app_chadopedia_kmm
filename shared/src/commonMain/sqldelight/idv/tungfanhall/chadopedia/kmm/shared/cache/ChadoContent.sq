@@ -1,7 +1,7 @@
 import kotlin.collections.List;
 
 CREATE TABLE ChadoContent(
-    id INTEGER AS Int NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER AS Int NOT NULL PRIMARY KEY,
     title TEXT AS String NOT NULL DEFAULT '',  -- 用户名
     desc TEXT AS String NOT NULL DEFAULT '',  -- 用户名
     has_image INTEGER AS Boolean NOT NULL DEFAULT 0,
@@ -11,3 +11,15 @@ CREATE TABLE ChadoContent(
     main_categories TEXT AS List<String> NOT NULL DEFAULT '',
     sub_categories TEXT AS List<String> NOT NULL DEFAULT ''
 );
+
+insertChadoContent:
+INSERT INTO ChadoContent(id, title, desc, has_image, enable, create_time, update_time, main_categories, sub_categories) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+removeChadoContent:
+DELETE FROM ChadoContent;
+
+queryAllChadoContent:
+SELECT * FROM ChadoContent;
+
+queryChadoContentById:
+SELECT * FROM ChadoContent WHERE id = ?;

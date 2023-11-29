@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import db.Database
+import db.DatabaseDriverFactory
 import functions.getChadoContent
 import functions.getMainCate
 import kotlinx.coroutines.launch
@@ -51,6 +53,7 @@ class HomeScreen : Screen {
 
         Column {
             main.forEach { _ ->
+                Database(DatabaseDriverFactory())
                 MainCard()
             }
         }
