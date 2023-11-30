@@ -4,15 +4,14 @@ import com.squareup.sqldelight.ColumnAdapter
 import idv.tungfanhall.chadopedia.kmm.shared.cache.AppDatabase
 import idv.tungfanhall.chadopedia.kmm.shared.cache.ChadoContent
 
-internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
-    private val database =
-        AppDatabase(
-            driver = databaseDriverFactory.createDriver(),
-            ChadoContentAdapter = ChadoContent.Adapter(
-                main_categoriesAdapter = createMainCateIdAdapter(),
-                sub_categoriesAdapter = createSubCateIdAdapter()
-            )
+class Database(databaseDriverFactory: DatabaseDriverFactory) {
+    private val database = AppDatabase(
+        driver = databaseDriverFactory.createDriver(),
+        ChadoContentAdapter = ChadoContent.Adapter(
+            main_categoriesAdapter = createMainCateIdAdapter(),
+            sub_categoriesAdapter = createSubCateIdAdapter()
         )
+    )
 
     val mainCategoriesQueries = database.mainCategoryQueries
 

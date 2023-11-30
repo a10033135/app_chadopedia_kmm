@@ -15,16 +15,16 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import db.Database
-import db.DatabaseDriverFactory
-import functions.getChadoContent
 import functions.getMainCate
 import kotlinx.coroutines.launch
 import model.MainCategory
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import org.lighthousegames.logging.logging
 import screen.second.SecondScreen
-import ui.card.MainCard
+class HomeScreen : Screen, KoinComponent {
 
-class HomeScreen : Screen {
+    private val database by inject<Database>()
 
     @Composable
     override fun Content() {
@@ -51,10 +51,14 @@ class HomeScreen : Screen {
             logging("Main").e { "mainCategory: $mainCategory" }
         }
 
+
+        database.mainCategoriesQueries.queryAllMainCategory().executeAsList().forEach {
+            logging("database").e { "mainCategory: $it" }
+        }
+
         Column {
-            main.forEach { _ ->
-                Database(DatabaseDriverFactory())
-                MainCard()
+            main.forEach {
+
             }
         }
     }

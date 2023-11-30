@@ -36,7 +36,6 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
-
                 api("org.lighthousegames:logging:1.3.0")
 
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
