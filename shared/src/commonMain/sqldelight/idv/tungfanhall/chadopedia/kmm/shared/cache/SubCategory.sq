@@ -4,7 +4,7 @@ import kotlin.String;
 import kotlin.Integer;
 
 CREATE TABLE SubCategory(
-    id INTEGER AS Int NOT NULL PRIMARY KEY,
+    id TEXT AS String NOT NULL PRIMARY KEY ,
     title TEXT AS String NOT NULL DEFAULT '',  -- 用户名
     desc TEXT AS String NOT NULL DEFAULT '',  -- 用户名
     has_image INTEGER AS Boolean NOT NULL DEFAULT 0,
