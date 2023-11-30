@@ -20,10 +20,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import io.kamel.image.KamelImage
+import io.kamel.image.asyncPainterResource
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
-fun SquareCard(title: String = "title", desc: String = "desc", hasImage: Boolean = true) {
+fun SquareCard(title: String = "title", desc: String = "desc", hasImage: Boolean = true, imgUrl: String = "") {
     Card(
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier
@@ -35,11 +37,11 @@ fun SquareCard(title: String = "title", desc: String = "desc", hasImage: Boolean
             contentAlignment = Alignment.BottomStart
         ) {
             if (hasImage) {
-                Image(
+                KamelImage(
                     modifier = Modifier
                         .fillMaxWidth()
                         .aspectRatio(1f),
-                    painter = painterResource(id = R.drawable.ic_launcher_background),
+                    resource = asyncPainterResource(data = imgUrl),
                     contentDescription = ""
                 )
             }
@@ -58,7 +60,8 @@ fun SquareCard(title: String = "title", desc: String = "desc", hasImage: Boolean
 fun RectCard(
     title: String = "title",
     desc: String = "desc",
-    hasImage: Boolean = true
+    hasImage: Boolean = true,
+    imgUrl: String = "",
 ) {
     Card(
         shape = RoundedCornerShape(16.dp),
@@ -72,11 +75,11 @@ fun RectCard(
         ) {
             if (hasImage) {
                 Card(shape = RoundedCornerShape(16.dp, 16.dp, 0.dp, 0.dp)) {
-                    Image(
+                    KamelImage(
                         modifier = Modifier
                             .fillMaxWidth()
                             .aspectRatio(1f),
-                        painter = painterResource(id = R.drawable.ic_launcher_background),
+                        resource = asyncPainterResource(data = imgUrl),
                         contentDescription = ""
                     )
                 }
@@ -94,7 +97,8 @@ fun RectCard(
 fun HorizonRectCard(
     title: String = "title",
     desc: String = "desc",
-    hasImage: Boolean = true
+    hasImage: Boolean = true,
+    imgUrl: String = "",
 ) {
     Card(
         shape = RoundedCornerShape(16.dp),
@@ -107,12 +111,13 @@ fun HorizonRectCard(
             modifier = Modifier.background(Color.Transparent)
         ) {
             if (hasImage) {
-                Card(shape = RoundedCornerShape(16.dp, 16.dp, 0.dp, 0.dp)) {
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_background),
-                        contentDescription = ""
-                    )
-                }
+                KamelImage(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(1f),
+                    resource = asyncPainterResource(data = imgUrl),
+                    contentDescription = ""
+                )
             }
 
             DescCard(
@@ -130,7 +135,7 @@ fun DescCard(
     modifier: Modifier = Modifier,
     textColor: Color = Color.White,
     title: String = "Title",
-    desc: String = "desc"
+    desc: String = "desc",
 ) {
     Column(modifier = modifier) {
         Text(

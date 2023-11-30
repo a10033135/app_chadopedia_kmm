@@ -11,13 +11,17 @@ import kotlinx.coroutines.flow.map
 import model.ChadoData
 import org.koin.core.component.KoinComponent
 
-private const val USER_PREFERENCES_NAME = "user_preferences"
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = USER_PREFERENCES_NAME)
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = LocalRepository.PreferencesName.USER)
 
 actual class LocalRepository(private val dataStore: DataStore<Preferences>) : KoinComponent {
 
     private val TAG = LocalRepository::class.java.simpleName
+
+    object PreferencesName {
+        const val USER = "user_preferences"
+
+    }
 
     private object PreferencesKeys {
         val CATEGORY_MAIN = intPreferencesKey("main_category")

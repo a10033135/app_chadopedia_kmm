@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.libsDirectory
+
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -70,6 +72,7 @@ kotlin {
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
                 api("androidx.datastore:datastore-preferences:$dataStoreVersion")
                 implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
+                implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
             }
         }
         val iosX64Main by getting
